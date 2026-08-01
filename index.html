@@ -4,87 +4,113 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Mattia Fiore — CV esteso</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --paper:#f7f6f3;
-    --ink:#22201e;
-    --accent:#7c1d1d;      /* oxblood, eco dell'accento Lato del CV */
-    --muted:#6b6560;
-    --rule:#e2ded7;
-    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
-    --mono:"SFMono-Regular",ui-monospace,Menlo,Consolas,"Courier New",monospace;
+    --paper:#faf9f6;
+    --ink:#1a1a1a;
+    --accent:#4a5568;
+    --accent-dark:#2d3748;
+    --warm:#8b6f4e;
+    --muted:#718096;
+    --rule:#e2e0dc;
+    --card:#fff;
+    --serif:'DM Serif Display',Georgia,serif;
+    --sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    --mono:'JetBrains Mono','SFMono-Regular',Consolas,monospace;
   }
-  *{box-sizing:border-box}
+  *{box-sizing:border-box;margin:0;padding:0}
   html{-webkit-text-size-adjust:100%}
   body{
-    margin:0;background:var(--paper);color:var(--ink);
-    font-family:var(--serif);line-height:1.5;
-    padding:clamp(1.5rem,4vw,4rem) clamp(1rem,4vw,2rem);
+    background:var(--paper);color:var(--ink);
+    font-family:var(--sans);line-height:1.55;font-size:15px;
+    padding:clamp(1.5rem,4vw,3.5rem) clamp(1rem,4vw,2rem);
   }
-  .wrap{max-width:920px;margin:0 auto}
+  .wrap{max-width:880px;margin:0 auto}
 
-  /* ---- header ---- */
-  header{border-bottom:1px solid var(--rule);padding-bottom:1.4rem;margin-bottom:1.6rem}
-  .name{font-size:clamp(1.9rem,5vw,2.7rem);font-weight:700;letter-spacing:.01em;margin:0}
-  .kicker{font-family:var(--mono);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;
-          color:var(--accent);margin:0 0 .5rem}
-  .sub{color:var(--muted);font-size:.98rem;margin:.5rem 0 0}
-  .sub a{color:var(--accent);text-decoration:none;border-bottom:1px solid transparent}
-  .sub a:hover,.sub a:focus{border-bottom-color:var(--accent)}
+  /* header */
+  header{display:flex;align-items:center;gap:1.4rem;padding-bottom:1.6rem;
+         border-bottom:1.5px solid var(--rule);margin-bottom:1.4rem}
+  .avatar{width:72px;height:72px;border-radius:50%;object-fit:cover;
+          border:2.5px solid var(--rule);flex-shrink:0}
+  .hdr-text{min-width:0}
+  .name{font-family:var(--serif);font-size:clamp(1.7rem,4.5vw,2.3rem);
+        font-weight:400;letter-spacing:.01em;line-height:1.15}
+  .sub{color:var(--muted);font-size:.88rem;margin-top:.35rem;line-height:1.45}
+  .sub a{color:var(--warm);text-decoration:none;border-bottom:1px solid transparent}
+  .sub a:hover{border-bottom-color:var(--warm)}
 
-  /* ---- nav / le due "pagine" ---- */
-  nav{display:flex;gap:1.6rem;flex-wrap:wrap;margin:1.4rem 0 2.2rem}
+  /* nav */
+  nav{display:flex;gap:.15rem;flex-wrap:wrap;margin:0 0 2rem;
+      border-bottom:1.5px solid var(--rule);padding-bottom:0}
   nav button{
-    font-family:var(--mono);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;
-    background:none;border:0;padding:.2rem 0;color:var(--muted);cursor:pointer;
-    border-bottom:2px solid transparent;transition:color .15s,border-color .15s;
+    font-family:var(--sans);font-size:.78rem;font-weight:500;letter-spacing:.04em;
+    text-transform:uppercase;background:none;border:0;
+    padding:.55rem .85rem;color:var(--muted);cursor:pointer;
+    border-bottom:2px solid transparent;margin-bottom:-1.5px;
+    transition:color .15s,border-color .15s;
   }
   nav button:hover{color:var(--ink)}
-  nav button[aria-current="true"]{color:var(--accent);border-bottom-color:var(--accent)}
-  nav button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+  nav button[aria-current="true"]{color:var(--accent-dark);border-bottom-color:var(--warm)}
+  nav button:focus-visible{outline:2px solid var(--warm);outline-offset:3px}
 
-  /* ---- pagina ---- */
-  .page{animation:fade .35s ease both}
+  /* page */
+  .page{animation:fade .3s ease both}
   .page[hidden]{display:none}
-  @keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
-  @media (prefers-reduced-motion:reduce){.page{animation:none}}
+  @keyframes fade{from{opacity:0;transform:translateY(3px)}to{opacity:1;transform:none}}
+  @media(prefers-reduced-motion:reduce){.page{animation:none}}
 
-  .page-title{font-size:1.5rem;margin:0 0 .3rem}
-  .page-lead{color:var(--muted);font-size:.98rem;margin:0 0 2.2rem;max-width:56ch}
+  .page-title{font-family:var(--serif);font-size:1.4rem;font-weight:400;margin:0 0 .25rem}
+  .page-lead{color:var(--muted);font-size:.9rem;margin:0 0 2rem;max-width:56ch}
 
   .section-label{
-    font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;
-    color:var(--accent);margin:2.4rem 0 1.1rem;padding-bottom:.4rem;border-bottom:1px solid var(--rule);
+    font-family:var(--mono);font-size:.68rem;font-weight:500;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--warm);
+    margin:2.2rem 0 1rem;padding-bottom:.4rem;border-bottom:1px solid var(--rule);
   }
   .section-label:first-of-type{margin-top:0}
 
-  /* ---- gruppo per anno: l'anno vive nel margine (echo marginpar) ---- */
-  .year-group{display:grid;grid-template-columns:3.5rem 1fr;gap:1.4rem;margin-bottom:1.7rem}
-  .year{font-family:var(--mono);font-size:.9rem;color:var(--accent);text-align:right;
-        padding-top:.15rem;position:sticky;top:.5rem;align-self:start}
-  .entries{display:flex;flex-direction:column;gap:1.15rem;min-width:0}
+  /* year grid */
+  .year-group{display:grid;grid-template-columns:3.2rem 1fr;gap:0 1.3rem;margin-bottom:1.5rem}
+  .year{font-family:var(--mono);font-size:.82rem;font-weight:500;color:var(--warm);
+        text-align:right;padding-top:.18rem;position:sticky;top:.5rem;align-self:start}
+  .entries{display:flex;flex-direction:column;gap:1rem;min-width:0}
 
-  .entry .meta{display:flex;flex-wrap:wrap;gap:.2rem .8rem;align-items:baseline;margin-bottom:.15rem}
-  .entry .date{font-family:var(--mono);font-size:.76rem;color:var(--muted);white-space:nowrap}
-  .entry .source{font-size:.82rem;letter-spacing:.03em;text-transform:uppercase;color:var(--accent)}
-  .entry .place{font-size:.9rem;color:var(--muted)}
-  .entry .lead-line{font-size:1.04rem;margin:.05rem 0 .1rem}
+  .entry .meta{display:flex;flex-wrap:wrap;gap:.15rem .7rem;align-items:baseline;margin-bottom:.1rem}
+  .entry .date{font-family:var(--mono);font-size:.72rem;color:var(--muted);white-space:nowrap}
+  .entry .source{font-size:.75rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--warm)}
+  .entry .place{font-size:.85rem;color:var(--muted)}
+  .entry .lead-line{font-size:.98rem;margin:.04rem 0 .08rem;line-height:1.45}
   .entry .lead-line.tt{font-style:italic}
-  .entry .ctx{font-size:.9rem;color:var(--muted);margin:0}
-  .entry.role .lead-line{color:var(--accent)}
+  .entry .ctx{font-size:.85rem;color:var(--muted);margin:0;line-height:1.4}
+  .entry.role .lead-line{color:var(--warm);font-weight:500}
 
-  footer{margin-top:3rem;padding-top:1.3rem;border-top:1px solid var(--rule);
-         color:var(--muted);font-size:.85rem}
-  footer a{color:var(--accent);text-decoration:none;border-bottom:1px solid transparent}
-  footer a:hover{border-bottom-color:var(--accent)}
+  /* project cards */
+  .projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.2rem;margin-top:.5rem}
+  .proj-card{background:var(--card);border:1px solid var(--rule);border-radius:6px;
+             padding:1.3rem 1.4rem;transition:border-color .2s}
+  .proj-card:hover{border-color:var(--warm)}
+  .proj-card h3{font-family:var(--serif);font-size:1.05rem;font-weight:400;margin:0 0 .5rem}
+  .proj-card h3 a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--rule)}
+  .proj-card h3 a:hover{border-bottom-color:var(--warm)}
+  .proj-card p{font-size:.88rem;color:var(--muted);line-height:1.45;margin:0 0 .6rem}
+  .proj-card .tech{font-family:var(--mono);font-size:.7rem;color:var(--warm);letter-spacing:.03em}
 
-  @media (max-width:560px){
-    .year-group{grid-template-columns:1fr;gap:.5rem}
-    .year{text-align:left;position:static;font-size:1rem;
-          border-bottom:1px solid var(--rule);padding-bottom:.3rem}
+  footer{margin-top:3rem;padding-top:1.2rem;border-top:1.5px solid var(--rule);
+         color:var(--muted);font-size:.82rem}
+  footer a{color:var(--warm);text-decoration:none;border-bottom:1px solid transparent}
+  footer a:hover{border-bottom-color:var(--warm)}
+
+  @media(max-width:560px){
+    header{flex-direction:column;align-items:flex-start;gap:.8rem}
+    .year-group{grid-template-columns:1fr;gap:.4rem}
+    .year{text-align:left;position:static;font-size:.9rem;
+          border-bottom:1px solid var(--rule);padding-bottom:.25rem}
+    .projects{grid-template-columns:1fr}
   }
   @media print{
-    nav{display:none}.page[hidden]{display:block !important}
+    nav{display:none}.page[hidden]{display:block!important}
     body{background:#fff}.year{position:static}
   }
 </style>
@@ -93,461 +119,309 @@
 <div class="wrap">
 
   <header>
-    <p class="kicker">CV esteso — appendice</p>
-    <h1 class="name">Mattia Fiore</h1>
-    <p class="sub">Elenco completo di conferenze, seminari, rassegna stampa e incontri pubblici a corredo del
-      <a href="#">curriculum</a>. Politiche abitative, trasformazioni territoriali e pianificazione urbana.</p>
+    <img class="avatar" src="data:image/jpeg;base64,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VzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+Cjx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMS4wLWpjMDAzIj4KICA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPgogICAgPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIKICAgICAgICB4bWxuczpHQ2FtZXJhPSJodHRwOi8vbnMuZ29vZ2xlLmNvbS9waG90b3MvMS4wL2NhbWVyYS8iPgogICAgICA8R0NhbWVyYTpTcGVjaWFsVHlwZUlEPmNvbS5nb29nbGUuYW5kcm9pZC5hcHBzLmNhbWVyYS5nYWxsZXJ5LnNwZWNpYWx0eXBlLlNwZWNpYWxUeXBlLVBPUlRSQUlUPC9HQ2FtZXJhOlNwZWNpYWxUeXBlSUQ+CiAgICA8L3JkZjpEZXNjcmlwdGlvbj4KICA8L3JkZjpSREY+CjwveDp4bXBtZXRhPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgCjw/eHBhY2tldCBlbmQ9InciPz7/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCADIAMgDASIAAhEBAxEB/8QAHAAAAAcBAQAAAAAAAAAAAAAAAAIDBAUGBwEI/8QA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" alt="Mattia Fiore">
+    <div class="hdr-text">
+      <h1 class="name">Mattia Fiore</h1>
+      <p class="sub">Conferenze, seminari, rassegna stampa, incontri pubblici e progetti.
+        <a href="mailto:mattia.fiore2@unibo.it">mattia.fiore2@unibo.it</a> ·
+        <a href="https://scholar.google.com/citations?user=BGbGQtIAAAAJ">Scholar</a> ·
+        <a href="https://github.com/macha94">GitHub</a></p>
+    </div>
   </header>
 
   <nav aria-label="Sezioni">
     <button id="nav-conf" aria-current="true" onclick="show('conf')">Conferenze &amp; seminari</button>
     <button id="nav-press" onclick="show('press')">Rassegna stampa</button>
     <button id="nav-events" onclick="show('events')">Incontri pubblici</button>
+    <button id="nav-projects" onclick="show('projects')">Progetti</button>
   </nav>
 
-  <!-- ============ PAGINA 1 — CONFERENZE E SEMINARI ============ -->
+  <!-- ============ CONFERENZE E SEMINARI ============ -->
   <main id="conf" class="page" aria-labelledby="conf-h">
     <h2 class="page-title" id="conf-h">Conferenze e seminari</h2>
-    <p class="page-lead">Relazioni e interventi a convegni nazionali e internazionali e cicli di seminari,
-       dal 2018 a oggi.</p>
+    <p class="page-lead">Relazioni e interventi a convegni nazionali e internazionali e cicli di seminari, dal 2018 a oggi.</p>
 
     <div class="section-label">Conferenze nazionali e internazionali</div>
 
-    <div class="year-group">
-      <div class="year">2026</div>
-      <div class="entries">
-        <article class="entry">
-          <div class="meta"><span class="date">2026</span><span class="place">RC21 — ISA Research Committee on Urban and Regional Development · Vienna</span></div>
-          <p class="lead-line tt">Filling the Voids. Student Housing, Land Financialisation, and the Local State in a Southern European University City</p>
-        </article>
-        <article class="entry">
-          <div class="meta"><span class="date">02–04/03/2026</span><span class="place">Eindhoven University of Technology (Paesi Bassi)</span></div>
-          <p class="lead-line tt">The “Last Resort”: Housing Crisis, Tourism, and the Production of Precarity in Luxury Purpose-Built Student Accommodation</p>
-          <p class="ctx">ENHR Housing and Young People Working Group — “Young People and Housing Precarity”, sessione “Student Accommodation in Cities”.</p>
-        </article>
-        <article class="entry">
-          <div class="meta"><span class="date">15/01/2026</span><span class="place">Università di Napoli Federico II</span></div>
-          <p class="lead-line tt">Le nuove forme dell’abitare in affitto: una lettura sociologica e territoriale, dentro e oltre il dibattito sulla finanziarizzazione</p>
-          <p class="ctx">Con Veronica Conte (KU Leuven). Convegno di fine mandato della Sezione AIS Territorio “Vivere i cambiamenti”.</p>
-        </article>
-      </div>
-    </div>
+    <div class="year-group"><div class="year">2026</div><div class="entries">
+      <article class="entry">
+        <div class="meta"><span class="date">2026</span><span class="place">RC21 — ISA · Vienna</span></div>
+        <p class="lead-line tt">Filling the Voids. Student Housing, Land Financialisation, and the Local State in a Southern European University City</p>
+      </article>
+      <article class="entry">
+        <div class="meta"><span class="date">02–04/03/2026</span><span class="place">Eindhoven University of Technology</span></div>
+        <p class="lead-line tt">The "Last Resort": Housing Crisis, Tourism, and the Production of Precarity in Luxury Purpose-Built Student Accommodation</p>
+        <p class="ctx">ENHR — "Young People and Housing Precarity", sessione "Student Accommodation in Cities".</p>
+      </article>
+      <article class="entry">
+        <div class="meta"><span class="date">15/01/2026</span><span class="place">Università di Napoli Federico II</span></div>
+        <p class="lead-line tt">Le nuove forme dell'abitare in affitto: una lettura sociologica e territoriale, dentro e oltre il dibattito sulla finanziarizzazione</p>
+        <p class="ctx">Con Veronica Conte (KU Leuven). Convegno di fine mandato della Sezione AIS Territorio.</p>
+      </article>
+    </div></div>
 
-    <div class="year-group">
-      <div class="year">2025</div>
-      <div class="entries">
-        <article class="entry">
-          <div class="meta"><span class="date">16/09/2025</span><span class="place">Politecnico di Torino</span></div>
-          <p class="lead-line tt">La finanziarizzazione dell’abitare e i suoi effetti sulla condizione studentesca. Un’analisi a partire dal caso di Bologna</p>
-          <p class="ctx">XVIII Conferenza ESPAnet Italia.</p>
-        </article>
-        <article class="entry">
-          <div class="meta"><span class="date">03–05/09/2025</span><span class="place">University of Coimbra (Portogallo)</span></div>
-          <p class="lead-line tt">Exploring Financialisation and Urban Austerity in Ordinary Cities: A Global to Local Perspective</p>
-          <p class="ctx">Coordinamento e discussant del panel (con Carolina Mudan Marelli e Maria Grazia Montesano). VI Midterm Conference “Decentered Cities”, Research Network 37 — European Sociological Association.</p>
-        </article>
-        <article class="entry">
-          <div class="meta"><span class="date">15/05/2025</span><span class="place">Bologna</span></div>
-          <p class="lead-line tt">Finanziarizzazione dello student housing. Patrimonio pubblico e studentati privati esclusivi: i casi di Bologna, Firenze e Milano</p>
-          <p class="ctx">Con Ilaria Agostini, Giuseppe Garzia e Lucia Tozzi. Convegno internazionale “Patrimonio pubblico in trasformazione”, rivista in_bo.</p>
-        </article>
-      </div>
-    </div>
+    <div class="year-group"><div class="year">2025</div><div class="entries">
+      <article class="entry">
+        <div class="meta"><span class="date">16/09/2025</span><span class="place">Politecnico di Torino</span></div>
+        <p class="lead-line tt">La finanziarizzazione dell'abitare e i suoi effetti sulla condizione studentesca</p>
+        <p class="ctx">XVIII Conferenza ESPAnet Italia.</p>
+      </article>
+      <article class="entry">
+        <div class="meta"><span class="date">03–05/09/2025</span><span class="place">University of Coimbra (Portogallo)</span></div>
+        <p class="lead-line tt">Exploring Financialisation and Urban Austerity in Ordinary Cities</p>
+        <p class="ctx">Coordinamento e discussant del panel. VI Midterm Conference RN37 — European Sociological Association.</p>
+      </article>
+      <article class="entry">
+        <div class="meta"><span class="date">15/05/2025</span><span class="place">Bologna</span></div>
+        <p class="lead-line tt">Finanziarizzazione dello student housing. Patrimonio pubblico e studentati privati esclusivi</p>
+        <p class="ctx">Con Ilaria Agostini, Giuseppe Garzia e Lucia Tozzi. Convegno internazionale "Patrimonio pubblico in trasformazione".</p>
+      </article>
+    </div></div>
 
-    <div class="year-group">
-      <div class="year">2024</div>
-      <div class="entries">
-        <article class="entry">
-          <div class="meta"><span class="date">19/06/2024</span><span class="place">Politecnico di Milano — Dip. di Architettura e Studi Urbani</span></div>
-          <p class="lead-line tt">Integrazione e frammentazione delle politiche abitative e delle politiche di rigenerazione urbana in Emilia-Romagna</p>
-          <p class="ctx">Con Luca Gullì (Ministero della Cultura). XXVII Conferenza Nazionale della Società Italiana degli Urbanisti — “Publicness”.</p>
-        </article>
-        <article class="entry role">
-          <div class="meta"><span class="date">19–21/06/2024</span><span class="place">Bertinoro</span></div>
-          <p class="lead-line">Membro del local board</p>
-          <p class="ctx">X International ASTMed Conference “Beyond the Tourism? Travels and travellers in the (post)Covid society” — Mediterranean Association for the Sociology of Tourism.</p>
-        </article>
-        <article class="entry">
-          <div class="meta"><span class="date">30–31/05/2024</span><span class="place">Università di Bari Aldo Moro</span></div>
-          <p class="lead-line tt">Le nuove residenze universitarie e la finanziarizzazione dell’abitare studentesco a Bologna. Verso un nuovo rapporto tra capitali e territori?</p>
-          <p class="ctx">Primo Convegno delle giovani sociologhe e dei giovani sociologi della Sezione AIS Territorio “Crisi permanenti”.</p>
-        </article>
-      </div>
-    </div>
+    <div class="year-group"><div class="year">2024</div><div class="entries">
+      <article class="entry">
+        <div class="meta"><span class="date">19/06/2024</span><span class="place">Politecnico di Milano</span></div>
+        <p class="lead-line tt">Integrazione e frammentazione delle politiche abitative e delle politiche di rigenerazione urbana in Emilia-Romagna</p>
+        <p class="ctx">Con Luca Gullì. XXVII Conferenza Nazionale SIU — "Publicness".</p>
+      </article>
+      <article class="entry role">
+        <div class="meta"><span class="date">19–21/06/2024</span><span class="place">Bertinoro</span></div>
+        <p class="lead-line">Membro del local board</p>
+        <p class="ctx">X International ASTMed Conference "Beyond the Tourism?"</p>
+      </article>
+      <article class="entry">
+        <div class="meta"><span class="date">30–31/05/2024</span><span class="place">Università di Bari Aldo Moro</span></div>
+        <p class="lead-line tt">Le nuove residenze universitarie e la finanziarizzazione dell'abitare studentesco a Bologna</p>
+        <p class="ctx">Primo Convegno giovani sociologi/e della Sezione AIS Territorio "Crisi permanenti".</p>
+      </article>
+    </div></div>
 
-    <div class="year-group">
-      <div class="year">2023</div>
-      <div class="entries">
-        <article class="entry">
-          <div class="meta"><span class="date">14/12/2023</span><span class="place">Università di Perugia</span></div>
-          <p class="lead-line tt">La finanziarizzazione dell’abitare studentesco. Il caso di Bologna</p>
-          <p class="ctx">Tavola rotonda (Prof. Giuseppe Scandurra), XI Convegno della Società Italiana di Antropologia Applicata (SIAA).</p>
-        </article>
-        <article class="entry">
-          <div class="meta"><span class="date">09–10/03/2023</span><span class="place">online</span></div>
-          <p class="lead-line tt">“More than a place to sleep”: The emergence of luxury Purpose-Built Student Accommodation between financialization and urban impacts</p>
-          <p class="ctx">New Housing Researchers Online Seminar 2023, European Network for Housing Research (ENHR).</p>
-        </article>
-        <article class="entry">
-          <div class="meta"><span class="date">12–14/01/2023</span><span class="place">Università di Milano Bicocca</span></div>
-          <p class="lead-line tt">Airbnb e Covid-19: tendenze e impatti del mercato degli affitti brevi alla luce della pandemia. Il caso di Bologna</p>
-          <p class="ctx">Convegno di fine mandato della Sezione AIS Territorio “I luoghi del vivere quotidiano”.</p>
-        </article>
-      </div>
-    </div>
+    <div class="year-group"><div class="year">2023</div><div class="entries">
+      <article class="entry">
+        <div class="meta"><span class="date">14/12/2023</span><span class="place">Università di Perugia</span></div>
+        <p class="lead-line tt">La finanziarizzazione dell'abitare studentesco. Il caso di Bologna</p>
+        <p class="ctx">Tavola rotonda, XI Convegno SIAA.</p>
+      </article>
+      <article class="entry">
+        <div class="meta"><span class="date">09–10/03/2023</span><span class="place">online</span></div>
+        <p class="lead-line tt">"More than a place to sleep": The emergence of luxury PBSA between financialization and urban impacts</p>
+        <p class="ctx">New Housing Researchers Online Seminar, ENHR.</p>
+      </article>
+      <article class="entry">
+        <div class="meta"><span class="date">12–14/01/2023</span><span class="place">Università di Milano Bicocca</span></div>
+        <p class="lead-line tt">Airbnb e Covid-19: tendenze e impatti del mercato degli affitti brevi</p>
+        <p class="ctx">Convegno di fine mandato della Sezione AIS Territorio.</p>
+      </article>
+    </div></div>
 
-    <div class="year-group">
-      <div class="year">2022</div>
-      <div class="entries">
-        <article class="entry">
-          <div class="meta"><span class="date">01–03/09/2022</span><span class="place">Università di Bari Aldo Moro</span></div>
-          <p class="lead-line tt">Airbnb e Covid-19. Come prima, più di prima? Un’analisi socioterritoriale a partire dal caso di Bologna</p>
-          <p class="ctx">XV Conferenza ESPAnet Italia “La sfida del PNRR”.</p>
-        </article>
-        <article class="entry">
-          <div class="meta"><span class="date">24–26/08/2022</span><span class="place">Harokopio University, Atene</span></div>
-          <p class="lead-line tt">Assessing Airbnb trends and impacts in exceptional times. The case of Bologna (Italy) before and after the Covid-19 pandemic arrival</p>
-          <p class="ctx">Conferenza internazionale “Ordinary Cities in Exceptional Times”, ISA-RC21.</p>
-        </article>
-      </div>
-    </div>
+    <div class="year-group"><div class="year">2022</div><div class="entries">
+      <article class="entry">
+        <div class="meta"><span class="date">01–03/09/2022</span><span class="place">Università di Bari Aldo Moro</span></div>
+        <p class="lead-line tt">Airbnb e Covid-19. Come prima, più di prima?</p>
+        <p class="ctx">XV Conferenza ESPAnet Italia.</p>
+      </article>
+      <article class="entry">
+        <div class="meta"><span class="date">24–26/08/2022</span><span class="place">Harokopio University, Atene</span></div>
+        <p class="lead-line tt">Assessing Airbnb trends and impacts in exceptional times. The case of Bologna</p>
+        <p class="ctx">ISA-RC21 "Ordinary Cities in Exceptional Times".</p>
+      </article>
+    </div></div>
 
-    <div class="year-group">
-      <div class="year">2021</div>
-      <div class="entries">
-        <article class="entry">
-          <div class="meta"><span class="date">09–11/12/2021</span><span class="place">Università di Napoli Federico II</span></div>
-          <p class="lead-line tt">Diffusione e impatto urbano delle piattaforme di short-term rental. Il caso Airbnb a Bologna tra touristification e Covid-19</p>
-          <p class="ctx">VI Conferenza Nazionale dei Dottorandi in Scienze Sociali.</p>
-        </article>
-      </div>
-    </div>
+    <div class="year-group"><div class="year">2021</div><div class="entries">
+      <article class="entry">
+        <div class="meta"><span class="date">09–11/12/2021</span><span class="place">Università di Napoli Federico II</span></div>
+        <p class="lead-line tt">Diffusione e impatto urbano delle piattaforme di short-term rental</p>
+        <p class="ctx">VI Conferenza Nazionale dei Dottorandi in Scienze Sociali.</p>
+      </article>
+    </div></div>
 
     <div class="section-label">Seminari e relazioni su invito</div>
 
-    <div class="year-group">
-      <div class="year">2024</div>
-      <div class="entries">
-        <article class="entry">
-          <div class="meta"><span class="date">12/12/2024</span><span class="place">Università di Bologna</span></div>
-          <p class="lead-line tt">Dall’affitto breve alla finanziarizzazione dell’abitare: il ruolo delle compagnie di gestione</p>
-          <p class="ctx">Seminario “Turismo, petrolio d’Italia” (Chair Prof. Federico Chicchi), CIDOSPEL.</p>
-        </article>
-        <article class="entry">
-          <div class="meta"><span class="date">14/03/2024</span><span class="place">Università La Sapienza, Roma — Dip. di Ingegneria Civile Edile e Ambientale</span></div>
-          <p class="lead-line tt">Le nuove residenze universitarie e la finanziarizzazione dell’abitare studentesco a Bologna. Verso un nuovo rapporto tra capitali e territori?</p>
-          <p class="ctx">Seminario “Quale sviluppo per la città contemporanea? Dialogo sul modello Bologna”.</p>
-        </article>
-        <article class="entry">
-          <div class="meta"><span class="date">05/04/2024</span><span class="place">Università di Bologna</span></div>
-          <p class="lead-line tt">Le nuove residenze universitarie a Bologna: processi di finanziarizzazione e impatti socio-spaziali</p>
-          <p class="ctx">Centro studi CePCiT.</p>
-        </article>
-        <article class="entry">
-          <div class="meta"><span class="date">09/04/2024</span><span class="place">Università di Bologna, Forlì</span></div>
-          <p class="lead-line tt">Airbnb e processi di touristification. Un’analisi socio-territoriale a partire dal caso di Bologna</p>
-          <p class="ctx">Ciclo di seminari di Sociologia del Territorio (Prof. G. Manella).</p>
-        </article>
-        <article class="entry">
-          <div class="meta"><span class="date">08/04/2024</span><span class="place">Università di Bologna</span></div>
-          <p class="lead-line tt">Airbnb e processi di touristification. Un’analisi socio-territoriale a partire dal caso di Bologna</p>
-          <p class="ctx">Laboratorio sul disagio abitativo e analisi socio-spaziale (Prof.ssa M. Maggio).</p>
-        </article>
-        <article class="entry">
-          <div class="meta"><span class="date">06/03/2024</span><span class="place">Università di Bologna</span></div>
-          <p class="lead-line tt">Airbnb e processi di touristification. Un’analisi socio-territoriale a partire dal caso di Bologna</p>
-          <p class="ctx">Ciclo di seminari di Sociologia Urbana (Proff. M. Bergamaschi, M. Castrignanò).</p>
-        </article>
-      </div>
-    </div>
+    <div class="year-group"><div class="year">2024</div><div class="entries">
+      <article class="entry">
+        <div class="meta"><span class="date">12/12/2024</span><span class="place">Università di Bologna</span></div>
+        <p class="lead-line tt">Dall'affitto breve alla finanziarizzazione dell'abitare: il ruolo delle compagnie di gestione</p>
+        <p class="ctx">Seminario "Turismo, petrolio d'Italia" (CIDOSPEL).</p>
+      </article>
+      <article class="entry">
+        <div class="meta"><span class="date">14/03/2024</span><span class="place">Università La Sapienza, Roma</span></div>
+        <p class="lead-line tt">Le nuove residenze universitarie e la finanziarizzazione dell'abitare studentesco a Bologna</p>
+        <p class="ctx">Dip. di Ingegneria Civile Edile e Ambientale. Seminario "Quale sviluppo per la città contemporanea?"</p>
+      </article>
+      <article class="entry">
+        <div class="meta"><span class="date">05/04/2024</span><span class="place">Università di Bologna</span></div>
+        <p class="lead-line tt">Le nuove residenze universitarie a Bologna: processi di finanziarizzazione e impatti socio-spaziali</p>
+        <p class="ctx">Centro studi CePCiT.</p>
+      </article>
+      <article class="entry">
+        <div class="meta"><span class="date">09/04/2024</span><span class="place">Università di Bologna, Forlì</span></div>
+        <p class="lead-line tt">Airbnb e processi di touristification</p>
+        <p class="ctx">Ciclo di seminari di Sociologia del Territorio (Prof. G. Manella).</p>
+      </article>
+      <article class="entry">
+        <div class="meta"><span class="date">08/04/2024</span><span class="place">Università di Bologna</span></div>
+        <p class="lead-line tt">Airbnb e processi di touristification</p>
+        <p class="ctx">Laboratorio sul disagio abitativo (Prof.ssa M. Maggio).</p>
+      </article>
+      <article class="entry">
+        <div class="meta"><span class="date">06/03/2024</span><span class="place">Università di Bologna</span></div>
+        <p class="lead-line tt">Airbnb e processi di touristification</p>
+        <p class="ctx">Ciclo di seminari di Sociologia Urbana (Proff. M. Bergamaschi, M. Castrignanò).</p>
+      </article>
+    </div></div>
 
-    <div class="year-group">
-      <div class="year">2023</div>
-      <div class="entries">
-        <article class="entry">
-          <div class="meta"><span class="date">24/05/2023</span><span class="place">Université Libre de Bruxelles</span></div>
-          <p class="lead-line tt">L’émergence des résidences étudiantes haut de gamme : impacts sociospatiaux et processus de financiarisation. Une étude de cas italienne</p>
-          <p class="ctx">Laboratoire interdisciplinaire en Études urbaines (LIEU), Cycle “Mutation et financiarisation du logement”.</p>
-        </article>
-        <article class="entry">
-          <div class="meta"><span class="date">04/04/2023</span><span class="place">Università di Bologna, Forlì</span></div>
-          <p class="lead-line tt">Airbnb e processi di touristification. Un’analisi socio-territoriale a partire dal caso di Bologna</p>
-          <p class="ctx">Ciclo di seminari di Sociologia del Territorio (Prof. G. Manella).</p>
-        </article>
-        <article class="entry">
-          <div class="meta"><span class="date">29/03/2023</span><span class="place">Università di Bologna</span></div>
-          <p class="lead-line tt">Airbnb e processi di touristification. Un’analisi socio-territoriale a partire dal caso di Bologna</p>
-          <p class="ctx">Ciclo di seminari di Sociologia Urbana (Proff. M. Bergamaschi, M. Castrignanò).</p>
-        </article>
-        <article class="entry">
-          <div class="meta"><span class="date">29/03/2023</span><span class="place">Università di Bologna</span></div>
-          <p class="lead-line tt">Airbnb e processi di touristification. Un’analisi socio-territoriale a partire dal caso di Bologna</p>
-          <p class="ctx">Laboratorio sul disagio abitativo e analisi socio-spaziale (Prof.ssa M. Maggio).</p>
-        </article>
-      </div>
-    </div>
+    <div class="year-group"><div class="year">2023</div><div class="entries">
+      <article class="entry">
+        <div class="meta"><span class="date">24/05/2023</span><span class="place">Université Libre de Bruxelles</span></div>
+        <p class="lead-line tt">L'émergence des résidences étudiantes haut de gamme : impacts sociospatiaux et processus de financiarisation</p>
+        <p class="ctx">Laboratoire interdisciplinaire en Études urbaines (LIEU).</p>
+      </article>
+      <article class="entry">
+        <div class="meta"><span class="date">04/04/2023</span><span class="place">Università di Bologna, Forlì</span></div>
+        <p class="lead-line tt">Airbnb e processi di touristification</p>
+        <p class="ctx">Ciclo di seminari di Sociologia del Territorio (Prof. G. Manella).</p>
+      </article>
+      <article class="entry">
+        <div class="meta"><span class="date">29/03/2023</span><span class="place">Università di Bologna</span></div>
+        <p class="lead-line tt">Airbnb e processi di touristification</p>
+        <p class="ctx">Ciclo di seminari di Sociologia Urbana (Proff. M. Bergamaschi, M. Castrignanò).</p>
+      </article>
+      <article class="entry">
+        <div class="meta"><span class="date">29/03/2023</span><span class="place">Università di Bologna</span></div>
+        <p class="lead-line tt">Airbnb e processi di touristification</p>
+        <p class="ctx">Laboratorio sul disagio abitativo (Prof.ssa M. Maggio).</p>
+      </article>
+    </div></div>
 
-    <div class="year-group">
-      <div class="year">2018</div>
-      <div class="entries">
-        <article class="entry">
-          <div class="meta"><span class="date">10/04/2018</span><span class="place">Università di Bologna — Dip. di Scienze dell’Educazione</span></div>
-          <p class="lead-line tt">Genealogia di una città di frontiera</p>
-          <p class="ctx">Relatore invitato al corso “Antropologia dei Processi Migratori” (Prof. B. Riccio).</p>
-        </article>
-      </div>
-    </div>
+    <div class="year-group"><div class="year">2018</div><div class="entries">
+      <article class="entry">
+        <div class="meta"><span class="date">10/04/2018</span><span class="place">Università di Bologna</span></div>
+        <p class="lead-line tt">Genealogia di una città di frontiera</p>
+        <p class="ctx">Relatore invitato, corso "Antropologia dei Processi Migratori" (Prof. B. Riccio).</p>
+      </article>
+    </div></div>
   </main>
 
-  <!-- ============ PAGINA 2 — RASSEGNA STAMPA ============ -->
+  <!-- ============ RASSEGNA STAMPA ============ -->
   <main id="press" class="page" aria-labelledby="press-h" hidden>
     <h2 class="page-title" id="press-h">Rassegna stampa</h2>
-    <p class="page-lead">Interviste, articoli e interventi su media locali e nazionali dedicati al diritto
-       all’abitare, alle trasformazioni urbane e alle politiche locali a Bologna.</p>
+    <p class="page-lead">Interviste, articoli e interventi su media locali e nazionali.</p>
 
-    <div class="year-group">
-      <div class="year">2026</div>
-      <div class="entries">
-        <article class="entry">
-          <div class="meta"><span class="date">26/02/2026</span><span class="source">Corriere della Sera — Bologna</span></div>
-          <p class="lead-line tt">Emergenza casa per gli studenti universitari a Bologna, la ricerca Unibo: «Crescono gli studentati di lusso, la mancanza di alloggi spinge verso la finanziarizzazione dell’abitare»</p>
-        </article>
-      </div>
-    </div>
+    <div class="year-group"><div class="year">2026</div><div class="entries">
+      <article class="entry">
+        <div class="meta"><span class="date">26/02/2026</span><span class="source">Corriere della Sera — Bologna</span></div>
+        <p class="lead-line tt">Emergenza casa per gli studenti universitari a Bologna, la ricerca Unibo: «Crescono gli studentati di lusso, la mancanza di alloggi spinge verso la finanziarizzazione dell'abitare»</p>
+      </article>
+    </div></div>
 
-    <div class="year-group">
-      <div class="year">2025</div>
-      <div class="entries">
-        <article class="entry">
-          <div class="meta"><span class="date">28/10/2025</span><span class="source">RAI — TGR Emilia-Romagna</span></div>
-          <p class="lead-line tt">Il boom degli affitti brevi e la città che si svuota</p>
-        </article>
-        <article class="entry">
-          <div class="meta"><span class="date">24/10/2025</span><span class="source">Radio Città Fujiko</span></div>
-          <p class="lead-line tt">A Bologna ci sono già almeno 30 condomini “colonizzati” da Airbnb</p>
-        </article>
-        <article class="entry">
-          <div class="meta"><span class="date">07/07/2025</span><span class="source">Radio Città Fujiko</span></div>
-          <p class="lead-line tt">Bologna cercasi: l’impatto dell’overtourism sull’identità della città</p>
-        </article>
-        <article class="entry">
-          <div class="meta"><span class="date">12/06/2025</span><span class="source">la Repubblica — Bologna</span></div>
-          <p class="lead-line tt">Troppi monolocali per l’edilizia sociale: “Così le famiglie restano senza casa”</p>
-        </article>
-        <article class="entry">
-          <div class="meta"><span class="date">04/05/2025</span><span class="source">la Repubblica — Bologna</span></div>
-          <p class="lead-line tt">Affitti brevi, il mercato è sempre più nelle mani delle grandi piattaforme</p>
-        </article>
-        <article class="entry">
-          <div class="meta"><span class="date">24/03/2025</span><span class="source">Radio Città Fujiko</span></div>
-          <p class="lead-line tt">Canoni concordati scomparsi e sfratti per affitti turistici: il capitale si mangia le case di Bologna</p>
-        </article>
-        <article class="entry">
-          <div class="meta"><span class="date">04/02/2025</span><span class="source">Radio Popolare</span></div>
-          <p class="lead-line tt">Tutto scorre — “Tutti insieme, appassionatamente, in montagna. Il cinepanettone, serio, di Roccaraso”</p>
-        </article>
-        <article class="entry">
-          <div class="meta"><span class="date">08/01/2025</span><span class="source">Controradio</span></div>
-          <p class="lead-line tt">Bologna: da roccaforte degli affitti per studenti a quarto capoluogo più caro d’Italia</p>
-        </article>
-      </div>
-    </div>
+    <div class="year-group"><div class="year">2025</div><div class="entries">
+      <article class="entry"><div class="meta"><span class="date">28/10/2025</span><span class="source">RAI — TGR Emilia-Romagna</span></div><p class="lead-line tt">Il boom degli affitti brevi e la città che si svuota</p></article>
+      <article class="entry"><div class="meta"><span class="date">24/10/2025</span><span class="source">Radio Città Fujiko</span></div><p class="lead-line tt">A Bologna ci sono già almeno 30 condomini "colonizzati" da Airbnb</p></article>
+      <article class="entry"><div class="meta"><span class="date">07/07/2025</span><span class="source">Radio Città Fujiko</span></div><p class="lead-line tt">Bologna cercasi: l'impatto dell'overtourism sull'identità della città</p></article>
+      <article class="entry"><div class="meta"><span class="date">12/06/2025</span><span class="source">la Repubblica — Bologna</span></div><p class="lead-line tt">Troppi monolocali per l'edilizia sociale: "Così le famiglie restano senza casa"</p></article>
+      <article class="entry"><div class="meta"><span class="date">04/05/2025</span><span class="source">la Repubblica — Bologna</span></div><p class="lead-line tt">Affitti brevi, il mercato è sempre più nelle mani delle grandi piattaforme</p></article>
+      <article class="entry"><div class="meta"><span class="date">24/03/2025</span><span class="source">Radio Città Fujiko</span></div><p class="lead-line tt">Canoni concordati scomparsi e sfratti per affitti turistici: il capitale si mangia le case di Bologna</p></article>
+      <article class="entry"><div class="meta"><span class="date">04/02/2025</span><span class="source">Radio Popolare</span></div><p class="lead-line tt">Tutto scorre — "Tutti insieme, appassionatamente, in montagna"</p></article>
+      <article class="entry"><div class="meta"><span class="date">08/01/2025</span><span class="source">Controradio</span></div><p class="lead-line tt">Bologna: da roccaforte degli affitti per studenti a quarto capoluogo più caro d'Italia</p></article>
+    </div></div>
 
-    <div class="year-group">
-      <div class="year">2024</div>
-      <div class="entries">
-        <article class="entry">
-          <div class="meta"><span class="date">02/12/2024</span><span class="source">Radio Città Fujiko</span></div>
-          <p class="lead-line tt">Casa, a Bologna le corporation stanno egemonizzando il mercato degli affitti turistici</p>
-        </article>
-        <article class="entry">
-          <div class="meta"><span class="date">09/06/2024</span><span class="source">Corriere della Sera — Verona</span></div>
-          <p class="lead-line tt">Palazzi senza (più) residenti: solo locazioni turistiche</p>
-        </article>
-        <article class="entry">
-          <div class="meta"><span class="date">23/04/2024</span><span class="source">Il Manifesto</span></div>
-          <p class="lead-line tt">Dagli affitti brevi agli sfratti, le battaglie del Forum dell’Abitare</p>
-        </article>
-        <article class="entry">
-          <div class="meta"><span class="date">19/04/2024</span><span class="source">BolognaToday</span></div>
-          <p class="lead-line tt">Airbnb: ecco come i giganti del turismo si stanno mangiando il mercato degli affitti brevi a Bologna</p>
-        </article>
-      </div>
-    </div>
+    <div class="year-group"><div class="year">2024</div><div class="entries">
+      <article class="entry"><div class="meta"><span class="date">02/12/2024</span><span class="source">Radio Città Fujiko</span></div><p class="lead-line tt">Casa, a Bologna le corporation stanno egemonizzando il mercato degli affitti turistici</p></article>
+      <article class="entry"><div class="meta"><span class="date">09/06/2024</span><span class="source">Corriere della Sera — Verona</span></div><p class="lead-line tt">Palazzi senza (più) residenti: solo locazioni turistiche</p></article>
+      <article class="entry"><div class="meta"><span class="date">23/04/2024</span><span class="source">Il Manifesto</span></div><p class="lead-line tt">Dagli affitti brevi agli sfratti, le battaglie del Forum dell'Abitare</p></article>
+      <article class="entry"><div class="meta"><span class="date">19/04/2024</span><span class="source">BolognaToday</span></div><p class="lead-line tt">Airbnb: ecco come i giganti del turismo si stanno mangiando il mercato degli affitti brevi a Bologna</p></article>
+    </div></div>
 
-    <div class="year-group">
-      <div class="year">2023</div>
-      <div class="entries">
-        <article class="entry">
-          <div class="meta"><span class="date">20/12/2023</span><span class="source">IRPIMedia</span></div>
-          <p class="lead-line tt">Turisti o studenti? Ecco la “popolazione transitante” che trasforma le città</p>
-        </article>
-        <article class="entry">
-          <div class="meta"><span class="date">09/05/2023</span><span class="source">Corriere della Sera — Bologna</span></div>
-          <p class="lead-line tt">Affitti, ecco i contratti mordi e fuggi dopo un po’</p>
-        </article>
-        <article class="entry">
-          <div class="meta"><span class="date">17/04/2023</span><span class="source">Corriere della Sera — Bologna</span></div>
-          <p class="lead-line tt">Con Airbnb si arrotonda la pensione? Falso, è in mano a professionisti</p>
-        </article>
-        <article class="entry">
-          <div class="meta"><span class="date">18/03/2023</span><span class="source">la Repubblica — Bologna</span></div>
-          <p class="lead-line tt">Airbnb, avanza il monopolio: a Bologna torna ai livelli pre-pandemia</p>
-        </article>
-        <article class="entry">
-          <div class="meta"><span class="date">01/2023</span><span class="source">Altreconomia</span></div>
-          <p class="lead-line tt">Bologna ha un problema con il diritto all’abitare. E si affida al mercato</p>
-        </article>
-      </div>
-    </div>
+    <div class="year-group"><div class="year">2023</div><div class="entries">
+      <article class="entry"><div class="meta"><span class="date">20/12/2023</span><span class="source">IRPIMedia</span></div><p class="lead-line tt">Turisti o studenti? Ecco la "popolazione transitante" che trasforma le città</p></article>
+      <article class="entry"><div class="meta"><span class="date">09/05/2023</span><span class="source">Corriere della Sera — Bologna</span></div><p class="lead-line tt">Affitti, ecco i contratti mordi e fuggi dopo un po'</p></article>
+      <article class="entry"><div class="meta"><span class="date">17/04/2023</span><span class="source">Corriere della Sera — Bologna</span></div><p class="lead-line tt">Con Airbnb si arrotonda la pensione? Falso, è in mano a professionisti</p></article>
+      <article class="entry"><div class="meta"><span class="date">18/03/2023</span><span class="source">la Repubblica — Bologna</span></div><p class="lead-line tt">Airbnb, avanza il monopolio: a Bologna torna ai livelli pre-pandemia</p></article>
+      <article class="entry"><div class="meta"><span class="date">01/2023</span><span class="source">Altreconomia</span></div><p class="lead-line tt">Bologna ha un problema con il diritto all'abitare. E si affida al mercato</p></article>
+    </div></div>
 
-    <div class="year-group">
-      <div class="year">2022</div>
-      <div class="entries">
-        <article class="entry">
-          <div class="meta"><span class="date">14/11/2022</span><span class="source">Vanloon</span></div>
-          <p class="lead-line tt">Abitare (a Bologna) stanca</p>
-        </article>
-        <article class="entry">
-          <div class="meta"><span class="date">19/10/2022</span><span class="source">BolognaToday</span></div>
-          <p class="lead-line tt">Studenti, turismo e il “grande hotel” Bologna — Intervista a Gainsforth e Fiore</p>
-        </article>
-      </div>
-    </div>
+    <div class="year-group"><div class="year">2022</div><div class="entries">
+      <article class="entry"><div class="meta"><span class="date">14/11/2022</span><span class="source">Vanloon</span></div><p class="lead-line tt">Abitare (a Bologna) stanca</p></article>
+      <article class="entry"><div class="meta"><span class="date">19/10/2022</span><span class="source">BolognaToday</span></div><p class="lead-line tt">Studenti, turismo e il "grande hotel" Bologna — Intervista a Gainsforth e Fiore</p></article>
+    </div></div>
   </main>
 
-  <!-- ============ PAGINA 3 — INCONTRI PUBBLICI ============ -->
+  <!-- ============ INCONTRI PUBBLICI ============ -->
   <main id="events" class="page" aria-labelledby="events-h" hidden>
     <h2 class="page-title" id="events-h">Incontri pubblici</h2>
-    <p class="page-lead">Presentazioni, dialoghi e interventi in spazi civici e culturali, come attività di
-       divulgazione e confronto cittadino su casa, città e trasformazioni urbane.</p>
+    <p class="page-lead">Presentazioni, dialoghi e interventi in spazi civici e culturali.</p>
 
-    <div class="year-group">
-      <div class="year">2025</div>
-      <div class="entries">
-        <article class="entry">
-          <div class="meta"><span class="date">19/12/2025</span><span class="place">Università di Modena e Reggio Emilia, Reggio Emilia</span></div>
-          <p class="lead-line">Incontro “Come abitano le studentə?”</p>
-          <p class="ctx">In dialogo con Alice Facchini (giornalista). Promosso dall’Osservatorio Reggiano per il Diritto all’Abitare.</p>
-        </article>
-        <article class="entry">
-          <div class="meta"><span class="date">07/10/2025</span><span class="place">Centro Comala, Torino</span></div>
-          <p class="lead-line">Incontro “Le mani sull’università”</p>
-          <p class="ctx">In dialogo con Unione degli Universitari e Collettivo Alter.POLIS. Promosso da Vuoti a rendere.</p>
-        </article>
-        <article class="entry">
-          <div class="meta"><span class="date">14/07/2025</span><span class="place">Serre dei Giardini Margherita, Bologna</span></div>
-          <p class="lead-line">Introduzione al documentario “Skin of Glass”</p>
-          <p class="ctx">In dialogo con Emily Marion Clancy (Vicesindaca del Comune di Bologna). Rassegna Architexture 2025, Ordine degli Architetti di Bologna.</p>
-        </article>
-        <article class="entry">
-          <div class="meta"><span class="date">03/05/2025</span><span class="place">Verona</span></div>
-          <p class="lead-line">Incontro “Quale casa? Un bene da strappare al mercato”</p>
-          <p class="ctx">In dialogo con Lucia Tozzi (giornalista). Festival Fomento.</p>
-        </article>
+    <div class="year-group"><div class="year">2025</div><div class="entries">
+      <article class="entry"><div class="meta"><span class="date">19/12/2025</span><span class="place">Università di Modena e Reggio Emilia</span></div><p class="lead-line">Incontro "Come abitano le studentə?"</p><p class="ctx">Con Alice Facchini. Osservatorio Reggiano per il Diritto all'Abitare.</p></article>
+      <article class="entry"><div class="meta"><span class="date">07/10/2025</span><span class="place">Centro Comala, Torino</span></div><p class="lead-line">Incontro "Le mani sull'università"</p><p class="ctx">Con Unione degli Universitari e Collettivo Alter.POLIS. Vuoti a rendere.</p></article>
+      <article class="entry"><div class="meta"><span class="date">14/07/2025</span><span class="place">Serre dei Giardini Margherita, Bologna</span></div><p class="lead-line">Introduzione al documentario "Skin of Glass"</p><p class="ctx">Con Emily Marion Clancy. Rassegna Architexture 2025.</p></article>
+      <article class="entry"><div class="meta"><span class="date">03/05/2025</span><span class="place">Verona</span></div><p class="lead-line">Incontro "Quale casa? Un bene da strappare al mercato"</p><p class="ctx">Con Lucia Tozzi. Festival Fomento.</p></article>
+    </div></div>
+
+    <div class="year-group"><div class="year">2024</div><div class="entries">
+      <article class="entry"><div class="meta"><span class="date">29/11/2024</span><span class="place">Casa della Cultura, Casalecchio di Reno</span></div><p class="lead-line">Workshop "Raccontare l'overtourism"</p><p class="ctx">Festival Politicamente scorretto (a cura di Carlo Lucarelli).</p></article>
+      <article class="entry"><div class="meta"><span class="date">15/05/2024</span><span class="place">Comune di Bologna</span></div><p class="lead-line">Incontro con studenti della Washington and Lee University</p><p class="ctx">Su invito del Settore Politiche Abitative.</p></article>
+    </div></div>
+
+    <div class="year-group"><div class="year">2023</div><div class="entries">
+      <article class="entry"><div class="meta"><span class="date">18/12/2023</span><span class="place">Circolo Arci "Ritmolento", Bologna</span></div><p class="lead-line">Presentazione "Le nuove recinzioni"</p><p class="ctx">Con Lucia Tozzi e Stefano Portelli. OsservaBo.</p></article>
+      <article class="entry"><div class="meta"><span class="date">12/06/2023</span><span class="place">Circolo Arci "Ritmolento", Bologna</span></div><p class="lead-line">Incontro "La casa ad orologeria"</p><p class="ctx">Con Veronica Conte, Erica Mangione e Fabio D'Alfonso. OsservaBo.</p></article>
+      <article class="entry"><div class="meta"><span class="date">17/03/2023</span><span class="place">Centro Interculturale Zonarelli, Bologna</span></div><p class="lead-line">Intervento "Gli spazi dell'abitare"</p><p class="ctx">Rassegna "Facciamoci spazio", rete D(i)ritti alla città.</p></article>
+    </div></div>
+
+    <div class="year-group"><div class="year">2022</div><div class="entries">
+      <article class="entry"><div class="meta"><span class="date">13/12/2022</span><span class="place">Làbas, Bologna</span></div><p class="lead-line">"Che cosa succede in città: trasformazioni (in)visibili"</p><p class="ctx">Con V. Conte, A. Esposito, S. Gainsforth, V. Monteventi, D. Olori.</p></article>
+      <article class="entry"><div class="meta"><span class="date">07/12/2022</span><span class="place">Bologna</span></div><p class="lead-line">"Questa città non è un albergo. Il caso Airbnb"</p><p class="ctx">Con Fabio D'Alfonso e Sarah Gainsforth. Link Bologna.</p></article>
+      <article class="entry"><div class="meta"><span class="date">14/10/2022</span><span class="place">Bologna</span></div><p class="lead-line">"Città pubblica casa pubblica"</p><p class="ctx">Con Alice Facchini e Alice Corona. Luna — Laboratorio Universitario.</p></article>
+      <article class="entry"><div class="meta"><span class="date">12/10/2022</span><span class="place">Libreria Modo Infoshop, Bologna</span></div><p class="lead-line">Presentazione di "Abitare stanca"</p><p class="ctx">Con Sarah Gainsforth e Mauro Boarelli.</p></article>
+    </div></div>
+
+    <div class="year-group"><div class="year">2017</div><div class="entries">
+      <article class="entry"><div class="meta"><span class="date">22/04/2017</span><span class="place">Università di Bologna</span></div><p class="lead-line">Ai confini dell'immagine: politiche della rappresentazione di un campo rifugiati</p><p class="ctx">Festival dell'Antropologia di Bologna.</p></article>
+      <article class="entry"><div class="meta"><span class="date">04/2017</span><span class="place">Biblioteca "Amilcar Cabral", Bologna</span></div><p class="lead-line">Tra solidarietà e controllo: il campo migranti di Calais</p><p class="ctx">Con Barbara Pinelli e Luca Jourdan. Centro Studi "Amilcar Cabral".</p></article>
+    </div></div>
+  </main>
+
+  <!-- ============ PROGETTI ============ -->
+  <main id="projects" class="page" aria-labelledby="proj-h" hidden>
+    <h2 class="page-title" id="proj-h">Progetti</h2>
+    <p class="page-lead">Strumenti di analisi e visualizzazione di dati territoriali, open-source su GitHub.</p>
+
+    <div class="projects">
+      <div class="proj-card">
+        <h3><a href="https://github.com/macha94/airbnb-multihost-bologna-map">Airbnb Multi-host Bologna Map</a></h3>
+        <p>Mappa interattiva della concentrazione dei multi-host di Airbnb a Bologna, costruita a partire da dati territoriali. Consente di esplorare visivamente la distribuzione spaziale degli operatori professionali sul mercato degli affitti brevi.</p>
+        <span class="tech">Python · Leaflet · GeoJSON</span>
       </div>
-    </div>
-
-    <div class="year-group">
-      <div class="year">2024</div>
-      <div class="entries">
-        <article class="entry">
-          <div class="meta"><span class="date">29/11/2024</span><span class="place">Casa della Cultura, Casalecchio di Reno</span></div>
-          <p class="lead-line">Relatore al workshop di giornalismo “Raccontare l’overtourism e i suoi impatti a livello sociale, economico e criminale”</p>
-          <p class="ctx">Con Andrea Giagnorio (Libera Bologna), Alice Facchini, Alessia Mariotti (Università di Bologna), Alessandro Canella (Radio Città Fujiko). Festival Politicamente scorretto (a cura di Carlo Lucarelli).</p>
-        </article>
-        <article class="entry">
-          <div class="meta"><span class="date">15/05/2024</span><span class="place">Comune di Bologna, Piazza Liber Paradisus</span></div>
-          <p class="lead-line">Incontro con studenti della Washington and Lee University</p>
-          <p class="ctx">Su invito del Settore Politiche Abitative del Comune di Bologna (coordinamento Prof.ssa Robin LeBlanc), sui processi di trasformazione urbana a Bologna.</p>
-        </article>
-      </div>
-    </div>
-
-    <div class="year-group">
-      <div class="year">2023</div>
-      <div class="entries">
-        <article class="entry">
-          <div class="meta"><span class="date">18/12/2023</span><span class="place">Circolo Arci “Ritmolento”, Bologna</span></div>
-          <p class="lead-line">Presentazione del libro “Le nuove recinzioni. Città, finanza e impoverimento degli abitanti”</p>
-          <p class="ctx">Con Lucia Tozzi (giornalista) e Stefano Portelli (Università Roma Tre). Promosso dall’Osservatorio Urbano di Bologna (OsservaBo).</p>
-        </article>
-        <article class="entry">
-          <div class="meta"><span class="date">12/06/2023</span><span class="place">Circolo Arci “Ritmolento”, Bologna</span></div>
-          <p class="lead-line">Incontro “La casa ad orologeria: prospettive critiche sulla questione abitativa a Bologna”</p>
-          <p class="ctx">In dialogo con Veronica Conte (KU Leuven), Erica Mangione (Politecnico di Torino) e Fabio D’Alfonso. Promosso da OsservaBo.</p>
-        </article>
-        <article class="entry">
-          <div class="meta"><span class="date">17/03/2023</span><span class="place">Centro Interculturale Zonarelli, Bologna</span></div>
-          <p class="lead-line">Intervento “Gli spazi dell’abitare”</p>
-          <p class="ctx">Rassegna “Facciamoci spazio”, rete D(i)ritti alla città.</p>
-        </article>
-      </div>
-    </div>
-
-    <div class="year-group">
-      <div class="year">2022</div>
-      <div class="entries">
-        <article class="entry">
-          <div class="meta"><span class="date">13/12/2022</span><span class="place">Làbas — Municipio sociale, Bologna</span></div>
-          <p class="lead-line">Incontro “Che cosa succede in città: trasformazioni (in)visibili”</p>
-          <p class="ctx">In dialogo con Veronica Conte (KU Leuven), Alessandra Esposito (La Sapienza), Sarah Gainsforth, Valerio Monteventi e Davide Olori (Università di Bologna). Promosso da Làbas.</p>
-        </article>
-        <article class="entry">
-          <div class="meta"><span class="date">07/12/2022</span><span class="place">Bologna</span></div>
-          <p class="lead-line">Incontro “Questa città non è un albergo. Il caso Airbnb”</p>
-          <p class="ctx">In dialogo con Fabio D’Alfonso e Sarah Gainsforth. Promosso da Link Bologna.</p>
-        </article>
-        <article class="entry">
-          <div class="meta"><span class="date">14/10/2022</span><span class="place">Bologna</span></div>
-          <p class="lead-line">Incontro “Città pubblica casa pubblica”</p>
-          <p class="ctx">In dialogo con Alice Facchini e Alice Corona (Università di Bologna). Promosso da Luna — Laboratorio Universitario.</p>
-        </article>
-        <article class="entry">
-          <div class="meta"><span class="date">12/10/2022</span><span class="place">Libreria Modo Infoshop, Bologna</span></div>
-          <p class="lead-line">Presentazione del libro “Abitare stanca”</p>
-          <p class="ctx">Con l’autrice Sarah Gainsforth e Mauro Boarelli (storico).</p>
-        </article>
-      </div>
-    </div>
-
-    <div class="year-group">
-      <div class="year">2017</div>
-      <div class="entries">
-        <article class="entry">
-          <div class="meta"><span class="date">22/04/2017</span><span class="place">Università di Bologna — Dip. di Filosofia</span></div>
-          <p class="lead-line">Ai confini dell’immagine: politiche della rappresentazione di un campo rifugiati</p>
-          <p class="ctx">Con introduzione di Marco Tabacchini. Festival dell’Antropologia di Bologna.</p>
-        </article>
-        <article class="entry">
-          <div class="meta"><span class="date">04/2017</span><span class="place">Biblioteca “Amilcar Cabral”, Bologna</span></div>
-          <p class="lead-line">Tra solidarietà e controllo: il campo migranti di Calais</p>
-          <p class="ctx">In dialogo con Barbara Pinelli (Università Roma Tre) e Luca Jourdan (Università di Bologna). Promosso dal Centro Studi “Amilcar Cabral”.</p>
-        </article>
+      <div class="proj-card">
+        <h3><a href="https://github.com/macha94/Inside-Airbnb-studies">Inside Airbnb — Studi su Bologna</a></h3>
+        <p>Analisi esplorativa e visualizzazione dei dati Inside Airbnb sul mercato degli affitti brevi a Bologna. Notebook Jupyter con pulizia, analisi statistica e rappresentazioni cartografiche del fenomeno. Realizzato con Filippo Bonora.</p>
+        <span class="tech">Python · Pandas · Jupyter · Matplotlib</span>
       </div>
     </div>
   </main>
 
   <footer>
     Mattia Fiore · <a href="mailto:mattia.fiore2@unibo.it">mattia.fiore2@unibo.it</a> ·
-    <a href="https://scholar.google.com/citations?user=BGbGQtIAAAAJ">Google Scholar</a>
+    <a href="https://scholar.google.com/citations?user=BGbGQtIAAAAJ">Google Scholar</a> ·
+    <a href="https://github.com/macha94">GitHub</a>
   </footer>
 
 </div>
 
 <script>
-  var PAGES = { conf:'nav-conf', press:'nav-press', events:'nav-events' };
-  function show(which){
+  var PAGES={conf:'nav-conf',press:'nav-press',events:'nav-events',projects:'nav-projects'};
+  function show(w){
     Object.keys(PAGES).forEach(function(id){
-      var active = (id === which);
-      document.getElementById(id).hidden = !active;
-      document.getElementById(PAGES[id]).setAttribute('aria-current', active ? 'true' : 'false');
+      var on=(id===w);
+      document.getElementById(id).hidden=!on;
+      document.getElementById(PAGES[id]).setAttribute('aria-current',on?'true':'false');
     });
-    if (history.replaceState) history.replaceState(null, '', '#' + which);
-    window.scrollTo({top:0, behavior:'auto'});
+    if(history.replaceState)history.replaceState(null,'','#'+w);
+    window.scrollTo({top:0,behavior:'auto'});
   }
-  var h = location.hash.replace('#','');
-  if (PAGES[h]) show(h);
+  var h=location.hash.replace('#','');
+  if(PAGES[h])show(h);
 </script>
 </body>
 </html>
